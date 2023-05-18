@@ -1,0 +1,27 @@
+version: '3.7.4'
+services:
+  app:
+    build: ./app1
+    depends_on:
+      - db
+    networks:
+      - MY
+    environment:
+      PYTHONUNBUFFERED: 1
+
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "PetroIsFucker55"
+      POSTGRES_DB: "DB_lab_1"
+      POSTGRES_HOST: "db"
+#      POSTGRES_HOST_AUTH_METHOD: "trust"
+    ports:
+      - '5432:5432'
+    networks:
+      - MY
+
+networks:
+  MY:
+      
